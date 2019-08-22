@@ -225,7 +225,7 @@ var blocks = exports.blocks = {
   'header-four': 'h4',
   'header-five': 'h5',
   'header-six': 'h6',
-  'unstyled': 'p',
+  'unstyled': 'div',
   'blockquote': 'blockquote'
 };
 
@@ -237,7 +237,7 @@ var blockNames = blockTypes.map(function (key) {
 var convertAtomicBlock = function convertAtomicBlock(block, contentState, blockNodeAttributes) {
 
   if (!block || !block.key) {
-    return _react2.default.createElement("p", null);
+    return _react2.default.createElement("div", null);
   }
 
   var contentBlock = contentState.getBlockForKey(block.key);
@@ -248,13 +248,13 @@ var convertAtomicBlock = function convertAtomicBlock(block, contentState, blockN
   nodeAttrAsProps.className = className;
 
   if (!contentBlock) {
-    return _react2.default.createElement("p", null);
+    return _react2.default.createElement("div", null);
   }
 
   var entityKey = contentBlock.getEntityAt(0);
 
   if (!entityKey) {
-    return _react2.default.createElement("p", null);
+    return _react2.default.createElement("div", null);
   }
 
   var entity = contentState.getEntity(entityKey);
@@ -323,7 +323,7 @@ var convertAtomicBlock = function convertAtomicBlock(block, contentState, blockN
   } else if (mediaType === 'hr') {
     return _react2.default.createElement("hr", null);
   } else {
-    return _react2.default.createElement("p", null);
+    return _react2.default.createElement("div", null);
   }
 };
 
